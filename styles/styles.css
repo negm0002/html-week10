@@ -194,6 +194,7 @@ aside .sidebarbox:nth-child(2){
 	display:flex;
 }
 
+
 /* flex is a shorthand property that combines flex-grow, flex-shrink, and flex-basis (in that order) */
 #content p:nth-child(1){ flex: 1 1 0; }
 #content p:nth-child(2){ flex: 2 1 0; }
@@ -202,3 +203,41 @@ aside .sidebarbox:nth-child(2){
 #content p:nth-child(5){ flex: 1 1 0; }
 
 
+/***********************************************************
+				Mobile Flexbox Example
+***********************************************************/
+.mobile-header{
+	background-color:grey;
+	/* vw = viewport width, vh = viewport height */
+	width:100vw;
+	height:100vh;
+	display:flex;
+	flex-direction:column;
+}
+
+.mobile-header div{
+	/*ignore the content (flex-basis:0) and make sure each takes up an equal amount of space across the column (flex-grow:1)*/
+	flex-basis:0;
+	flex-grow:1;
+
+	/*fix the image so it doesn't repeat and always covers the whole box*/
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center;
+
+	/*use flexbox to center the text horizontally and vertically*/
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* ../ means go up one folder, as we need to get from the css file to the image file */
+.mobile-header div:nth-child(1){ background-image:url("../images/pancake-batfish.jpg"); }
+.mobile-header div:nth-child(2){ background-image:url("../images/barreleye-fish.jpg"); }
+.mobile-header div:nth-child(3){ background-image:url("../images/blobfish.jpg"); }
+
+.mobile-header div span{
+	color:white;
+	font-weight:bold;
+	font-size:2rem;
+}
