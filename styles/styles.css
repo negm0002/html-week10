@@ -112,11 +112,15 @@ nav ul{
 }
 
 main{
-	width: 75%;
+	/* width: 75%; */
+	flex-basis: 0;
+	flex-grow: 3;
 }
 
 aside{
-	width: 25%;
+	/* width: 25%; */
+	flex-basis: 0;
+	flex-grow: 1;
 	/* display flex is not inherited - so, if you want the aside to also use flexbox, you have to set it */
 	display: flex;
 	flex-direction:column-reverse;
@@ -136,6 +140,13 @@ aside .sidebarbox{
 	justify-content: center;
 	/* align items looks at the cross axis (by default, vertical, or column) */
 	align-items: center;
+}
+
+
+aside .sidebarbox:nth-child(2){
+	/* order in this case sends it to the end of the primary axis, which is column-reverse, or bottom to top - so the
+	end of the axis means it sends it to the top (and a negative number would send it to the bottom) */
+	order: 1;
 }
 
 #fish{
@@ -165,6 +176,18 @@ aside .sidebarbox{
 
 #rainbow #gr{
 	flex-grow: 4;
+	/* a positive number will move it towards the end of the main axis (in this case with the horizontal axis, towards the right) */
+	order: 1;
+}
+
+#rainbow #ye{
+	/* a negative number will move it toward the start of the main axis (in this case, with the horizontal axis, towards the left */
+	order: -1;
+}
+
+#rainbow #in{
+	/* a higher number is "more important" - so negative 2 will set this further to the start that negative 1 */
+	order: -2;
 }
 
 #content{
