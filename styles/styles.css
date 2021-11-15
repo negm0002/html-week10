@@ -68,7 +68,7 @@ h2{
 }
 
 .container{
-    width:1024px;
+    width:90%;
     margin:0 auto;
 }
 
@@ -99,15 +99,22 @@ nav ul li{
 ***********************************************************/
 
 nav ul{
+<<<<<<< HEAD
 	background-color: rgb(220,220,220);
 	/* set the container to display:flex */
 	display: flex;
+=======
+	background-color:rgb(220,220,220);
+	/* set the container to display:flex */
+	display:flex;
+>>>>>>> 1d8a5ca0c283b3deaa0ad4cfe62f28e4d2da5a4d
 	/* justify content tells the browser how you want the items inside the flexbox to behave on the main axis */
 	justify-content:space-evenly;
 }
 
 /* the div with the class bodyflex contains both the main and the aside */
 .bodyflex{
+<<<<<<< HEAD
 	display: flex;
 }
 
@@ -119,6 +126,24 @@ aside{
 	width: 25%;
 	/* display flex is not inherited - so, if you want the aside to also use flexbox, you have to set it */
 	display: flex;
+=======
+	display:flex;
+}
+
+main{
+	/*width:75%;*/
+	flex-basis:0;
+	flex-grow:2;
+
+}
+
+aside{
+	/*width:25%;*/
+	flex-basis:0;
+	flex-grow:1;
+	/* display flex is not inherited - so, if you want the aside to also use flexbox, you have to set it */
+	display:flex;
+>>>>>>> 1d8a5ca0c283b3deaa0ad4cfe62f28e4d2da5a4d
 	flex-direction:column-reverse;
 }
 
@@ -126,6 +151,7 @@ aside .sidebarbox{
 	/* by default - flex basis is set to 'auto', which means shrink to the size of the content
 	if we give it a number, we assign a level of importance to the items - if they all have the same number, they all have the same
 	size importance */
+<<<<<<< HEAD
 	flex-basis: 0;
 	/* then you have to use flex grow or flex shrink to tell the boxes how you want them to grow or shrink
 	relative to the space they have to each other */
@@ -146,29 +172,86 @@ aside .sidebarbox{
 
 #fish img{
 	width: 100%;
+=======
+	flex-basis:0;
+	/* then you have to use flex grow or flex shrink to tell the boxes how you want them to grow or shrink
+	relative to the space the have and to each other */
+	flex-grow:1;
+
+	display:flex;
+	/* justify content looks at the main axis (by default horizontal, or row)*/
+	justify-content:center;
+	/* align-items looks at the cross axis (by default, vertical, or column) */
+	align-items:center;
+}
+
+aside .sidebarbox:nth-child(2){
+	/* order in this case sends it to the end of the primary axis, which is column-reverse, or bottom to top - so the
+	end of the axis means it sends it to the top (and a negative number would send it to the bottom) */
+	order:1;
+}
+
+#fish{
+	display:flex;
+	/* use flex wrap to allow the flex to wrap to the next line (or as many lines as necessary) */
+	/*flex-wrap:wrap;*/
+}
+
+#fish img{
+	width:100%;
+>>>>>>> 1d8a5ca0c283b3deaa0ad4cfe62f28e4d2da5a4d
 }
 
 #rainbow{
 	/* without any other instructions, elements with no content disappear when they are first set to display flex */
+<<<<<<< HEAD
 	display: flex;
 }
 
 #rainbow div{
 	flex-basis: 0;
 	flex-grow: 1;
+=======
+	display:flex;
+}
+
+#rainbow div{
+	flex-basis:0;
+	flex-grow:1;
+>>>>>>> 1d8a5ca0c283b3deaa0ad4cfe62f28e4d2da5a4d
 }
 
 #rainbow #re, #rainbow #bl{
 	/* this will set these two divs to be twice the size of the other five, relative to the amount of space they have */
+<<<<<<< HEAD
 	flex-grow: 2;
 }
 
 #rainbow #gr{
 	flex-grow: 4;
+=======
+	flex-grow:2;
+}
+
+#rainbow #gr{
+	flex-grow:4;
+	/* a positive number will move it toward the end of the main axis (in this case, with the horizontal axis, towards the right*/
+	order: 1;
+}
+
+#rainbow #ye{
+	/*a negative number will move it toward the start of the main axis (in this case, with the horizontal axis, towards the left*/
+	order:-1;
+}
+#rainbow #in{
+	/* a higher number is "more important" - so negative 2 will set this further to the start than negative 1*/
+	order:-2;
+>>>>>>> 1d8a5ca0c283b3deaa0ad4cfe62f28e4d2da5a4d
 }
 
 #content{
 	/* divs with content will try to take up as much space as they need, relative to the content of the other boxes */
+<<<<<<< HEAD
 	display: flex;
 }
 
@@ -178,3 +261,55 @@ aside .sidebarbox{
 #content p:nth-child(3){ flex: 3 1 0; }
 #content p:nth-child(4){ flex: 6 1 0; }
 #content p:nth-child(5){ flex: 1 1 0; }
+=======
+	display:flex;
+}
+
+
+/* flex is a shorthand property that combines flex-grow, flex-shrink, and flex-basis (in that order) */
+#content p:nth-child(1){ flex: 1 1 0; }
+#content p:nth-child(2){ flex: 2 1 0; }
+#content p:nth-child(3){ flex: 3 1 0; }
+#content p:nth-child(4){ flex: 3 1 0; }
+#content p:nth-child(5){ flex: 1 1 0; }
+
+
+/***********************************************************
+				Mobile Flexbox Example
+***********************************************************/
+.mobile-header{
+	background-color:grey;
+	/* vw = viewport width, vh = viewport height */
+	width:100vw;
+	height:100vh;
+	display:flex;
+	flex-direction:column;
+}
+
+.mobile-header div{
+	/*ignore the content (flex-basis:0) and make sure each takes up an equal amount of space across the column (flex-grow:1)*/
+	flex-basis:0;
+	flex-grow:1;
+
+	/*fix the image so it doesn't repeat and always covers the whole box*/
+	background-repeat:no-repeat;
+	background-size:cover;
+	background-position:center;
+
+	/*use flexbox to center the text horizontally and vertically*/
+	display:flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* ../ means go up one folder, as we need to get from the css file to the image file */
+.mobile-header div:nth-child(1){ background-image:url("../images/pancake-batfish.jpg"); }
+.mobile-header div:nth-child(2){ background-image:url("../images/barreleye-fish.jpg"); }
+.mobile-header div:nth-child(3){ background-image:url("../images/blobfish.jpg"); }
+
+.mobile-header div span{
+	color:white;
+	font-weight:bold;
+	font-size:2rem;
+}
+>>>>>>> 1d8a5ca0c283b3deaa0ad4cfe62f28e4d2da5a4d
